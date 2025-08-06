@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principles of Data Science - Hourly Course Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .course-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            break-after: avoid;
+        }
+        .course-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            break-after: avoid;
+        }
+        .course-content h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            break-after: avoid;
+        }
+        .course-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            break-inside: avoid;
+        }
+        .course-content th, .course-content td {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .course-content th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        .mode-practical { background-color: #fff7ed; }
+        .mode-theory { background-color: #f5f3ff; }
+        .page-break { break-after: page; }
+        .resource-icon {
+            display: inline-block;
+            margin-right: 0.25rem;
+            font-size: 1.1rem;
+        }
+        @media print {
+            body * { visibility: hidden; }
+            .printable-area, .printable-area * { visibility: visible; }
+            .printable-area { position: absolute; left: 0; top: 0; width: 100%; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50 no-print">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                 <img src="faceprep-logo-multicolor.png" alt="FACE Prep Logo" class="h-12">
+            </div>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#overview" class="text-gray-600 hover:text-orange-600">Overview</a>
+                <a href="#visuals" class="text-gray-600 hover:text-orange-600">Visuals</a>
+                <a href="#schedule" class="text-gray-600 hover:text-orange-600">Hourly Schedule</a>
+                <button onclick="exportAsPDF()" class="bg-orange-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-700 transition duration-300 ml-4">
+                    Export as PDF
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8 printable-area">
+
+        <!-- Course Overview Section -->
+        <div id="overview" class="course-content bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-4xl font-bold text-gray-800">Principles of Data Science</h1>
+            <p class="text-lg text-gray-600 mt-2">A 75-Hour Course Following a Strict 80/20 Hands-On Model</p>
+            
+            <h3>Course Description</h3>
+            <p>This course lays the foundational framework for understanding and practicing data science. Students will journey through the complete data science workflow, from defining a business problem and collecting data to cleaning, analysis, visualization, and predictive modeling. With a curriculum that is 80% practical, the course emphasizes hands-on experience with essential tools like Python, Excel, and Tableau, while also covering the critical ethical considerations and future trends that shape the field.</p>
+
+             <h3>Key Resources</h3>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <h4 class="font-bold">Core Textbooks & Readings</h4>
+                    <ul>
+                        <li><b>[VanderPlas]</b> Python Data Science Handbook by Jake VanderPlas.</li>
+                        <li><b>[McKinney]</b> Python for Data Analysis by Wes McKinney.</li>
+                        <li><b>[Knaflic]</b> Storytelling with Data by Cole Nussbaumer Knaflic.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <h4 class="font-bold">Key Platforms</h4>
+                     <ul>
+                        <li><b>[Python]</b> with libraries like Pandas, NumPy, Matplotlib, Seaborn, and Scikit-learn.</li>
+                        <li><b>[Tableau / Power BI]</b> for dashboarding and business intelligence.</li>
+                        <li><b>[Microsoft Excel]</b> for foundational data analysis and modeling.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualizations -->
+        <div id="visuals" class="course-content mt-8 bg-white p-8 rounded-lg shadow-lg page-break">
+            <h3>Visualizing the Learning Journey</h3>
+            <div class="grid md:grid-cols-2 gap-12 items-center mt-6">
+                 <div>
+                    <h4 class="text-center">Topological Graph of Course Concepts</h4>
+                    <svg class="w-full" viewBox="0 0 400 220">
+                        <g font-family="Inter" font-size="9" text-anchor="middle">
+                            <circle cx="200" cy="30" r="28" fill="#fef3c7"/><text x="200" y="32">Foundations</text>
+                            <circle cx="60" cy="110" r="28" fill="#dbeafe"/><text x="60" y="112">Tools & Platforms</text>
+                            <circle cx="180" cy="110" r="28" fill="#dbeafe"/><text x="180" y="108">Data Collection</text><text x="180" y="118">& Cleaning</text>
+                            <circle cx="300" cy="110" r="28" fill="#dbeafe"/><text x="300" y="112">EDA & Viz</text>
+                            <circle cx="120" cy="190" r="28" fill="#ede9fe"/><text x="120" y="192">Predictive Analytics</text>
+                            <circle cx="280" cy="190" r="28" fill="#ede9fe"/><text x="280" y="188">Ethics & Future</text><text x="280" y="198">Trends</text>
+                        </g>
+                        <g stroke="#9ca3af" stroke-width="1.5">
+                           <path d="M 200 58 C 200 70 180 80 180 82 V 82" fill="none"/>
+                           <path d="M 200 58 C 200 70 60 80 60 82 V 82" fill="none"/>
+                           <path d="M 200 58 C 200 70 300 80 300 82 V 82" fill="none"/>
+                           <path d="M 180 138 V 162 C 180 162 150 162 145 162" fill="none"/>
+                           <path d="M 300 138 V 162 C 300 162 150 162 145 162" fill="none"/>
+                           <path d="M 148 190 H 252" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+                 <div class="w-full">
+                    <h4 class="text-center">Course Structure Comparison</h4>
+                     <svg class="w-full" viewBox="0 0 400 200">
+                        <g font-family="Inter" font-size="11" text-anchor="middle">
+                            <text x="100" y="35" font-weight="600">Generic Data Course</text>
+                            <rect x="50" y="55" width="100" height="30" fill="#d1d5db" rx="5"/><text x="100" y="75" fill="white">Theory (70%)</text>
+                            <rect x="50" y="95" width="100" height="30" fill="#9ca3af" rx="5"/><text x="100" y="115" fill="white">Labs (30%)</text>
+                            <text x="300" y="35" font-weight="600">Our 80/20 Approach</text>
+                            <rect x="250" y="55" width="100" height="30" fill="#a855f7" rx="5"/><text x="300" y="75" fill="white">Theory (20%)</text>
+                            <rect x="250" y="95" width="100" height="30" fill="#f97316" rx="5"/><text x="300" y="115" fill="white">Labs & Projects (80%)</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center mt-12 page-break">
+                <div class="w-full">
+                    <h4 class="text-center">80/20 Practical vs. Theory Split</h4>
+                    <div class="h-64"><canvas id="courseSplitChart"></canvas></div>
+                </div>
+                <div class="w-full">
+                    <h4 class="text-center">Hourly Breakdown per Unit</h4>
+                    <div class="h-64"><canvas id="hourlyBreakdownChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hourly Schedule -->
+        <div id="schedule" class="course-content mt-8 bg-white p-8 rounded-lg shadow-lg page-break">
+            <h2>Hour-by-Hour Course Schedule (75 Hours)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hour</th>
+                        <th>Unit</th>
+                        <th>Mode</th>
+                        <th>Topic</th>
+                        <th>Subtopics & Activities</th>
+                        <th>Key Resources</th>
+                        <th>BTL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Unit 1 -->
+                    <tr class="mode-theory"><td>1</td><td>1</td><td><b>Theory</b></td><td>Intro to Data Science</td><td>Definition, importance, and scope of data science.</td><td><span class="resource-icon">📖</span> Supplemental</td><td>2</td></tr>
+                    <tr class="mode-theory"><td>2</td><td>1</td><td><b>Theory</b></td><td>Data & Workflows</td><td>Data types (structured, semi-, un-), sources, and workflow overview.</td><td><span class="resource-icon">📖</span> Supplemental</td><td>2</td></tr>
+                    <tr class="mode-practical"><td>3</td><td>1</td><td><b>Lab</b></td><td>Exploring Data Types</td><td>Hands-on: Load and inspect a CSV file (structured data).</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>4</td><td>1</td><td><b>Lab</b></td><td>Exploring Data Types</td><td>Hands-on: Load and parse a JSON file (semi-structured data).</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>5</td><td>1</td><td><b>Lab</b></td><td>Exploring Data Types</td><td>Hands-on: Read and perform basic word counts on a text file (unstructured).</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>6</td><td>1</td><td><b>Lab</b></td><td>Workflow in Practice</td><td>Case study intro: Analyze a business problem (e.g., predicting customer churn).</td><td><span class="resource-icon">🔬</span> Case Brief</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>7</td><td>1</td><td><b>Lab</b></td><td>Workflow in Practice</td><td>Activity: Map the case study problem to the data science workflow steps.</td><td><span class="resource-icon">🔬</span> Case Brief</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>8</td><td>1</td><td><b>Lab</b></td><td>Workflow in Practice</td><td>Hands-on: Initial data exploration of the case study dataset.</td><td><span class="resource-icon">🔬</span> Case Brief</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>9</td><td>1</td><td><b>Lab</b></td><td>Ethical Dilemmas</td><td>Discussion: Analyze the Cambridge Analytica case study.</td><td><span class="resource-icon">📖</span> Readings</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>10</td><td>1</td><td><b>Lab</b></td><td>Ethical Dilemmas</td><td>Activity: Identify potential ethical issues in a given business scenario.</td><td><span class="resource-icon">📖</span> Readings</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>11</td><td>1</td><td><b>Lab</b></td><td>Unit 1 Review</td><td>Mini-project applying workflow concepts to a small dataset.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>12</td><td>1</td><td><b>Lab</b></td><td>Unit 1 Review</td><td>Quiz and Q&A session on foundational concepts.</td><td></td><td>3</td></tr>
+                    <!-- Unit 2 -->
+                    <tr class="mode-theory"><td>13</td><td>2</td><td><b>Theory</b></td><td>Tools Overview</td><td>Lecture: Strengths/weaknesses of Excel for data analysis.</td><td><span class="resource-icon">📖</span> Supplemental</td><td>2</td></tr>
+                    <tr class="mode-theory"><td>14</td><td>2</td><td><b>Theory</b></td><td>Tools Overview</td><td>Lecture: Intro to BI tools (Tableau/Power BI) and Python for data science.</td><td><span class="resource-icon">📖</span> Supplemental</td><td>2</td></tr>
+                    <tr class="mode-practical"><td>15</td><td>2</td><td><b>Lab</b></td><td>Excel for Analysis</td><td>Hands-on: Using formulas and functions for basic calculations.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>16</td><td>2</td><td><b>Lab</b></td><td>Excel for Analysis</td><td>Hands-on: Sorting, filtering, and conditional formatting.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>17</td><td>2</td><td><b>Lab</b></td><td>Excel for Analysis</td><td>Hands-on: Creating PivotTables to summarize data.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>18</td><td>2</td><td><b>Lab</b></td><td>Excel for Analysis</td><td>Hands-on: Using VLOOKUP to merge data from different sheets.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>19</td><td>2</td><td><b>Lab</b></td><td>BI Tool Intro</td><td>Guided tour of Tableau/Power BI interface. Connecting to a data source.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>20</td><td>2</td><td><b>Lab</b></td><td>BI Tool Intro</td><td>Hands-on: Creating a simple bar chart and scatter plot in the BI tool.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>21</td><td>2</td><td><b>Lab</b></td><td>Python Data Handling</td><td>Environment setup (Anaconda/Colab). Intro to Jupyter Notebooks.</td><td><span class="resource-icon">📖</span> McKinney: Ch. 3</td><td>2</td></tr>
+                    <tr class="mode-practical"><td>22</td><td>2</td><td><b>Lab</b></td><td>Python Data Handling</td><td>Hands-on: Loading a CSV into a Pandas DataFrame.</td><td><span class="resource-icon">📖</span> McKinney: Ch. 5</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>23</td><td>2</td><td><b>Lab</b></td><td>Python Data Handling</td><td>Hands-on: Inspecting a DataFrame (`.head()`, `.info()`, `.describe()`).</td><td><span class="resource-icon">📖</span> McKinney: Ch. 5</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>24</td><td>2</td><td><b>Lab</b></td><td>Python Data Handling</td><td>Hands-on: Selecting columns and filtering rows in Pandas.</td><td><span class="resource-icon">📖</span> McKinney: Ch. 5</td><td>3</td></tr>
+                    <!-- Unit 3 -->
+                    <tr class="mode-theory"><td>25</td><td>3</td><td><b>Theory</b></td><td>Data Collection</td><td>Lecture: Methods - Surveys, Web Scraping, APIs, Databases.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 3</td><td>2</td></tr>
+                    <tr class="mode-theory"><td>26</td><td>3</td><td><b>Theory</b></td><td>Data Cleaning Concepts</td><td>Lecture: Data quality, handling missing data, duplicates, outliers.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 3</td><td>2</td></tr>
+                    <tr class="mode-practical"><td>27</td><td>3</td><td><b>Lab</b></td><td>Web Scraping</td><td>Hands-on with `requests` to fetch HTML from a simple web page.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>28</td><td>3</td><td><b>Lab</b></td><td>Web Scraping</td><td>Hands-on with `BeautifulSoup` to parse HTML and extract data.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>29</td><td>3</td><td><b>Lab</b></td><td>Data Cleaning</td><td>Hands-on: Identifying missing data in a DataFrame using `.isnull().sum()`.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>30</td><td>3</td><td><b>Lab</b></td><td>Data Cleaning</td><td>Hands-on: Imputing missing data using mean/median/mode.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>31</td><td>3</td><td><b>Lab</b></td><td>Data Cleaning</td><td>Hands-on: Finding and removing duplicate rows.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>32</td><td>3</td><td><b>Lab</b></td><td>Data Cleaning</td><td>Hands-on: Identifying outliers using the IQR method.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>33</td><td>3</td><td><b>Lab</b></td><td>Transformation</td><td>Hands-on: Normalizing data using Min-Max scaling.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>34</td><td>3</td><td><b>Lab</b></td><td>Transformation</td><td>Hands-on: Standardizing data using Z-score scaling.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>35</td><td>3</td><td><b>Lab</b></td><td>Feature Engineering</td><td>Hands-on: Creating new features from existing data (e.g., from date columns).</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>36</td><td>3</td><td><b>Lab</b></td><td>Intro to EDA</td><td>Tying it all together: Perform a basic cleaning and exploration workflow.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <!-- Unit 4 -->
+                    <tr class="mode-theory"><td>37</td><td>4</td><td><b>Theory</b></td><td>Descriptive Stats</td><td>Lecture: Measures of central tendency (mean, median) and dispersion (std dev).</td><td><span class="resource-icon">📖</span> Knaflic: Ch. 1-3</td><td>2</td></tr>
+                    <tr class="mode-theory"><td>38</td><td>4</td><td><b>Theory</b></td><td>Visualization Principles</td><td>Lecture: Choosing the right chart. Storytelling with data concepts.</td><td><span class="resource-icon">📖</span> Knaflic: Ch. 1-3</td><td>2</td></tr>
+                    <tr class="mode-practical"><td>39</td><td>4</td><td><b>Lab</b></td><td>Descriptive Stats in Python</td><td>Hands-on: Using `.describe()` and other Pandas functions.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 2</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>40</td><td>4</td><td><b>Lab</b></td><td>Descriptive Stats in Python</td><td>Hands-on: Calculating grouped statistics using `.groupby()`.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 3</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>41</td><td>4</td><td><b>Lab</b></td><td>Visualization in Python</td><td>Hands-on: Creating histograms and box plots with Seaborn.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 4</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>42</td><td>4</td><td><b>Lab</b></td><td>Visualization in Python</td><td>Hands-on: Creating scatter plots and line charts with Seaborn.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 4</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>43</td><td>4</td><td><b>Lab</b></td><td>Visualization in Python</td><td>Hands-on: Creating heatmaps to visualize correlations.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 4</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>44</td><td>4</td><td><b>Lab</b></td><td>Storytelling with Data</td><td>Activity: Annotating charts to highlight key insights.</td><td><span class="resource-icon">📖</span> Knaflic: Ch. 4</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>45</td><td>4</td><td><b>Lab</b></td><td>Dashboard Creation</td><td>Hands-on: Building a simple interactive dashboard in Tableau/Power BI.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>46</td><td>4</td><td><b>Lab</b></td><td>Dashboard Creation</td><td>Hands-on: Adding filters and interactivity to the dashboard.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>47</td><td>4</td><td><b>Lab</b></td><td>Dashboard Creation</td><td>Activity: Presenting insights from the created dashboard.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>48</td><td>4</td><td><b>Lab</b></td><td>Unit 4 Review</td><td>Mini-project: Create a full EDA report with stats and visualizations.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>5</td></tr>
+                    <!-- Unit 5 -->
+                    <tr class="mode-theory"><td>49</td><td>5</td><td><b>Theory</b></td><td>Predictive Analytics</td><td>Lecture: Supervised vs. Unsupervised learning. Regression vs. Classification.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 5</td><td>2</td></tr>
+                    <tr class="mode-theory"><td>50</td><td>5</td><td><b>Theory</b></td><td>Predictive Analytics</td><td>Lecture: How simple models work. Train-test split. Model evaluation.</td><td><span class="resource-icon">📖</span> VanderPlas: Ch. 5</td><td>2</td></tr>
+                    <tr class="mode-practical"><td>51</td><td>5</td><td><b>Lab</b></td><td>Regression in Excel</td><td>Hands-on: Using Excel's Data Analysis ToolPak for simple regression.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>52</td><td>5</td><td><b>Lab</b></td><td>Regression in Python</td><td>Hands-on: Preparing data for modeling with Scikit-learn.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>53</td><td>5</td><td><b>Lab</b></td><td>Regression in Python</td><td>Hands-on: Training a Linear Regression model with Scikit-learn.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>54</td><td>5</td><td><b>Lab</b></td><td>Regression in Python</td><td>Hands-on: Evaluating the regression model (R-squared, RMSE).</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>55</td><td>5</td><td><b>Lab</b></td><td>Classification in Python</td><td>Hands-on: Training a Logistic Regression model for churn prediction.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>56</td><td>5</td><td><b>Lab</b></td><td>Classification in Python</td><td>Hands-on: Evaluating the classification model (Accuracy).</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>57</td><td>5</td><td><b>Lab</b></td><td>Classification in Python</td><td>Hands-on: Creating and interpreting a Confusion Matrix.</td><td><span class="resource-icon">💻</span> Lab Handout</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>58</td><td>5</td><td><b>Lab</b></td><td>Model Interpretation</td><td>Activity: Discussing the results and limitations of the sales/churn models.</td><td><span class="resource-icon">🔬</span> Case Study</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>59</td><td>5</td><td><b>Lab</b></td><td>Model Interpretation</td><td>Activity: Presenting model findings to a non-technical audience.</td><td><span class="resource-icon">🔬</span> Case Study</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>60</td><td>5</td><td><b>Lab</b></td><td>Unit 5 Review</td><td>Quiz and Q&A on predictive modeling concepts.</td><td></td><td>3</td></tr>
+                    <!-- Unit 6 -->
+                    <tr class="mode-theory"><td>61</td><td>6</td><td><b>Theory</b></td><td>Data Ethics</td><td>Discussion: Data bias, fairness, transparency in algorithms.</td><td><span class="resource-icon">📖</span> Readings</td><td>3</td></tr>
+                    <tr class="mode-theory"><td>62</td><td>6</td><td><b>Theory</b></td><td>Data Privacy</td><td>Discussion: GDPR, HIPAA, and other data protection laws.</td><td><span class="resource-icon">📖</span> Readings</td><td>3</td></tr>
+                    <tr class="mode-theory"><td>63</td><td>6</td><td><b>Theory</b></td><td>Future Trends</td><td>Discussion: Big Data, AI/ML impact on data science, and career paths.</td><td><span class="resource-icon">📖</span> Readings</td><td>3</td></tr>
+                    <tr class="mode-practical"><td>64</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 1</td><td>Workshop: Brainstorming project ideas and formulating a problem statement.</td><td><span class="resource-icon">🔬</span> Project Brief</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>65</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 1</td><td>Lab: Finding and collecting data for the chosen project.</td><td><span class="resource-icon">🔬</span> Project Work</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>66</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 1</td><td>Lab: Performing initial data cleaning and preparation on project data.</td><td><span class="resource-icon">🔬</span> Project Work</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>67</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 2</td><td>Lab: Conducting Exploratory Data Analysis (EDA) on project data.</td><td><span class="resource-icon">🔬</span> Project Work</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>68</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 2</td><td>Lab: Creating key visualizations to uncover insights for the project.</td><td><span class="resource-icon">🔬</span> Project Work</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>69</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 2</td><td>Lab: Building a baseline predictive model for the project.</td><td><span class="resource-icon">🔬</span> Project Work</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>70</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 2</td><td>Lab: Evaluating the baseline model and identifying next steps.</td><td><span class="resource-icon">🔬</span> Project Work</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>71</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 3</td><td>Workshop: Preparing the final presentation structure.</td><td><span class="resource-icon">🎤</span> Presentation</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>72</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 3</td><td>Lab: Finalizing code, results, and visualizations.</td><td><span class="resource-icon">🎤</span> Presentation</td><td>4</td></tr>
+                    <tr class="mode-practical"><td>73</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 3</td><td>Activity: Peer review of project summaries and findings.</td><td><span class="resource-icon">🎤</span> Presentation</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>74</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 3</td><td>Final Presentations & Demos.</td><td><span class="resource-icon">🎤</span> Presentation</td><td>5</td></tr>
+                    <tr class="mode-practical"><td>75</td><td>6</td><td><b>Project</b></td><td>Capstone Pt. 3</td><td>Final Presentations, Q&A, and course wrap-up.</td><td><span class="resource-icon">🎤</span> Presentation</td><td>5</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-6 border-t no-print">
+        <div class="container mx-auto px-6 text-center text-gray-600">
+            <p>&copy; 2024 FACE Prep Campus (www.faceprep.in). All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Chart for 80/20 Split
+        const ctxSplit = document.getElementById('courseSplitChart');
+        if (ctxSplit) {
+            new Chart(ctxSplit.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Practical (60 hrs)', 'Theory (15 hrs)'],
+                    datasets: [{
+                        data: [80, 20],
+                        backgroundColor: ['rgba(249, 115, 22, 0.8)', 'rgba(139, 92, 246, 0.8)'],
+                        borderColor: ['#ffffff'], borderWidth: 2
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+            });
+        }
+
+        // Chart for hourly breakdown per unit
+        const ctxHourly = document.getElementById('hourlyBreakdownChart');
+        if (ctxHourly) {
+            new Chart(ctxHourly.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['Unit 1 (12h)', 'Unit 2 (12h)', 'Unit 3 (12h)', 'Unit 4 (12h)', 'Unit 5 (12h)', 'Unit 6 (15h)'],
+                    datasets: [
+                        { label: 'Theory Hours', data: [2, 2, 2, 2, 2, 3], backgroundColor: 'rgba(139, 92, 246, 0.8)'}, 
+                        { label: 'Practical Hours', data: [10, 10, 10, 10, 10, 12], backgroundColor: 'rgba(249, 115, 22, 0.8)'}
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { x: { stacked: true, ticks: { font: { size: 10 } } }, y: { stacked: true, title: { display: true, text: 'Hours' } } },
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+        }
+
+        function exportAsPDF() {
+            const element = document.querySelector('.printable-area');
+            const pageTitle = document.title || 'Course Document';
+            const fileName = pageTitle.replace(/ /g, '_') + '.pdf';
+
+            const canvases = element.querySelectorAll('canvas');
+            const canvasImages = [];
+            canvases.forEach(canvas => {
+                canvasImages.push({ id: canvas.id, dataUrl: canvas.toDataURL('image/png') });
+                canvas.style.display = 'none';
+            });
+
+            const imagePlaceholders = [];
+            canvasImages.forEach(imgData => {
+                const originalCanvas = document.getElementById(imgData.id);
+                if (originalCanvas) {
+                    const img = document.createElement('img');
+                    img.src = imgData.dataUrl;
+                    img.style.maxWidth = '100%';
+                    img.style.height = 'auto';
+                    img.style.border = '1px solid #eee';
+                    img.style.borderRadius = '8px';
+                    img.style.padding = '10px';
+                    originalCanvas.parentNode.insertBefore(img, originalCanvas);
+                    imagePlaceholders.push({img: img, originalCanvas: originalCanvas});
+                }
+            });
+
+            const opt = {
+                margin: [0.75, 0.5, 0.75, 0.5], filename: fileName,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'], before: '.page-break' }
+            };
+
+            const worker = html2pdf().set(opt).from(element);
+
+            worker.toPdf().get('pdf').then(pdf => {
+                const totalPages = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= totalPages; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(9);
+                    pdf.setTextColor(150);
+                    pdf.text('Principles of Data Science - Hourly Plan', opt.margin[1], opt.margin[0] / 1.5);
+                    pdf.text('FACE Prep Campus', pdf.internal.pageSize.getWidth() - opt.margin[3], opt.margin[0] / 1.5, { align: 'right' });
+                    pdf.text(`Page ${i} of ${totalPages}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - (opt.margin[2] / 2), { align: 'center' });
+                }
+            }).save().then(() => {
+                 imagePlaceholders.forEach(item => {
+                    item.img.remove();
+                    item.originalCanvas.style.display = 'block';
+                 });
+            });
+        }
+    </script>
+</body>
+</html>
